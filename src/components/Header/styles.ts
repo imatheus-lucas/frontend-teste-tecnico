@@ -7,6 +7,7 @@ export const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
+  grid-area: header;
 
   span {
     font-size: 1.5rem;
@@ -27,6 +28,10 @@ export const Container = styled.header`
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: filter 0.2s;
+      &:hover {
+        filter: brightness(90%);
+      }
       img {
         width: 1.5rem;
         height: 1.5rem;
