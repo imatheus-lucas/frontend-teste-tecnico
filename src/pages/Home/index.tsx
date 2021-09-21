@@ -20,7 +20,22 @@ import {
 import CheckBox from '../../components/CheckBox';
 import Switch from 'react-switch';
 import TableHeaderActions from '../../components/TableHeaderActions';
+import { useEffect, useState } from 'react';
+import { fetchApi } from '../../services/api';
+
+type RegionsDataProps = {
+  idRegion: number;
+  nameRegion: string;
+};
 export default function Home() {
+  const [regions, setRegions] = useState<RegionsDataProps[]>([]);
+  const fetchRegiosList = async () => {
+    const data = await fetchApi('/region/list');
+    setRegions(data.regions);
+  };
+  useEffect(() => {
+    fetchRegiosList();
+  }, []);
   return (
     <Container>
       <Header />
@@ -40,13 +55,10 @@ export default function Home() {
                       <MdUnfoldMore />
                     </th>
                     <th>
-                      NOME
+                      REGIÃO
                       <MdUnfoldMore />
                     </th>
-                    <th>
-                      CNPJ
-                      <MdUnfoldMore />
-                    </th>
+
                     <th>
                       STATUS
                       <MdUnfoldMore />
@@ -54,19 +66,19 @@ export default function Home() {
                   </tr>
                 </thead>
                 <tbody>
-                  {Array.from({ length: 10 }, (v, k) => k).map(item => (
-                    <tr style={item == 1 ? { opacity: 0.5 } : {}}>
+                  {regions.map(region => (
+                    <tr key={region.idRegion}>
                       <td>
                         <CheckBox checked={false} />
                       </td>
-                      <td>1</td>
-                      <td>Coca-Cola company</td>
-                      <td>12345678901234</td>
+                      <td>{region.idRegion}</td>
+                      <td>{region.nameRegion}</td>
+
                       <td>
                         <div>
                           <Switch
                             onChange={() => {}}
-                            checked={item == 1}
+                            checked={true}
                             checkedIcon={false}
                             uncheckedIcon={false}
                             height={20}

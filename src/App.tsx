@@ -1,6 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { GlobalStyles } from './styles/GlobalStyles';
 import Home from './pages/Home';
 import { ThemeProvider } from 'styled-components';

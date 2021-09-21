@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
   height: calc(100vh - 3rem);
 `;
 export const Wrapper = styled.div`
@@ -18,54 +17,55 @@ export const Main = styled.main`
     margin-bottom: 1rem;
   }
   section {
-    padding: 1rem;
+    padding: 2rem;
     background: ${({ theme }) => theme.colors.secondary};
     border-radius: 1rem;
+
+    height: 85%;
   }
 `;
 export const ScrollingTable = styled.div`
-  height: 15rem;
-  overflow: auto;
-  margin-top: 1rem;
-  padding: 1rem;
+  position: relative;
+  margin: 1rem 0;
+  height: 90%;
+  overflow-y: scroll;
+  padding-right: 1rem;
 `;
 
 export const Table = styled.table`
-  color: #312e38;
-
-  text-align: left;
-  border-collapse: collapse;
   width: 100%;
-  thead {
-    line-height: 3rem;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  text-align: left;
+  color: ${({ theme }) => theme.colors.tertiary};
+  line-height: 2rem;
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 0.775rem;
+
+  tr {
+    line-height: 2.5rem;
   }
 
-  thead {
-    th {
-      font-size: 0.775rem;
-      color: ${({ theme }) => theme.colors.primary};
-      svg {
-        margin-left: 0.875rem;
-      }
-    }
-    th + th {
-      padding: 0 1rem;
-      background: #f2f3f5;
-    }
+  th + th {
+    background: #f2f3f5;
+    padding: 0 1rem;
   }
 
   tbody {
     tr {
-      padding: 4rem 0;
+      line-height: 4rem;
     }
     td + td {
+      color: ${({ theme }) => theme.colors.text};
+      font-size: 0.775rem;
       padding: 0 1rem;
-
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid ${({ theme }) => theme.colors.tertiary};
     }
+
     div {
       display: flex;
-      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
     button {
       border: none;
@@ -82,21 +82,11 @@ export const Table = styled.table`
         filter: brightness(0.8);
       }
     }
-    td {
-      height: 3rem;
-    }
-
-    td:last-child {
-      div {
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
   }
 `;
 
 export const Pagination = styled.div`
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
