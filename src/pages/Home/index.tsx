@@ -31,9 +31,8 @@ type RegionsDataProps = {
 };
 export default function Home() {
   const [regions, setRegions] = useState<RegionsDataProps[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+
   const fetchRegiosList = async () => {
-    setIsLoading(true);
     const data = await fetchApi('/region/list');
 
     const regions = data.regions.map((region: RegionsDataProps) => {
@@ -44,7 +43,6 @@ export default function Home() {
       };
     });
     setRegions(regions);
-    setIsLoading(false);
   };
 
   const handleToggleStatus = useCallback(
