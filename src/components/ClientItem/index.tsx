@@ -1,8 +1,11 @@
-import { Container } from './styles';
+import { memo } from 'react';
+
 import CheckBox from '../CheckBox';
 import Switch from 'react-switch';
+
 import { MdCreate, MdDelete } from 'react-icons/md';
-import { memo } from 'react';
+
+import { Container } from './styles';
 
 type ClientItemProps = {
   region: RegionsDataProps;

@@ -1,6 +1,7 @@
-import { Container } from './styles';
 import CheckBox from '../CheckBox';
+
 import { MdExpandMore, MdSearch } from 'react-icons/md';
+import { Container } from './styles';
 export default function TableHeaderActions() {
   return (
     <Container>

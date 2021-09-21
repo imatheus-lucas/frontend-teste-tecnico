@@ -1,7 +1,9 @@
+import Badge from '../Badge';
+
 import { FiBell } from 'react-icons/fi';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import Badge from '../Badge';
 import { Container } from './styles';
+
 export default function Header() {
   return (
     <Container>

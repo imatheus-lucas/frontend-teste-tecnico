@@ -1,5 +1,12 @@
+import { useCallback, useEffect, useState } from 'react';
+
 import Header from '../../components/Header';
 import SideNav from '../../components/SideNav';
+import ClientItem from '../../components/ClientItem';
+import TableHeaderActions from '../../components/TableHeaderActions';
+
+import { MdUnfoldMore, MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { fetchApi } from '../../services/api';
 import {
   Container,
   Table,
@@ -10,19 +17,6 @@ import {
   PaginatiionButton,
   PaginationItem,
 } from './styles';
-import {
-  MdExpandMore,
-  MdUnfoldMore,
-  MdSearch,
-  MdCreate,
-  MdDelete,
-  MdChevronLeft,
-  MdChevronRight,
-} from 'react-icons/md';
-import ClientItem from '../../components/ClientItem';
-import TableHeaderActions from '../../components/TableHeaderActions';
-import { useCallback, useEffect, useState } from 'react';
-import { fetchApi } from '../../services/api';
 
 type RegionsDataProps = {
   idRegion: number;
