@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.nav`
   width: 3rem;
-  height: calc(100vh - 3rem);
+  height: 100%;
   background: ${({ theme }) => theme.colors.secondary};
   display: flex;
   flex-direction: column;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  grid-area: side;
 
   a {
     padding: 0.675rem 0;
