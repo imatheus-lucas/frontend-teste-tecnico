@@ -33,9 +33,17 @@ export const StyledCheckbox = styled.div<StyledCheckboxProps>`
   width: 20px;
   height: 20px;
   background: ${props =>
-    props.checked ? props.theme.colors.primary : 'papayawhip'};
+    props.checked ? props.theme.colors.primary : '#f5f5f5'};
   border-radius: 1rem;
   transition: all 150ms;
+  cursor: pointer;
+
+  &:hover {
+    ${Icon} {
+      visibility: visible;
+    }
+    background: ${props => props.theme.colors.primary};
+  }
 
   input:focus + & {
     box-shadow: 0 0 0 3px pink;
