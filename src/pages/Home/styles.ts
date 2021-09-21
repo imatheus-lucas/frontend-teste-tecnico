@@ -55,33 +55,6 @@ export const Table = styled.table`
     tr {
       line-height: 4rem;
     }
-    td + td {
-      color: ${({ theme }) => theme.colors.text};
-      font-size: 0.775rem;
-      padding: 0 1rem;
-      border-bottom: 1px solid ${({ theme }) => theme.colors.tertiary};
-    }
-
-    div {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    button {
-      border: none;
-      width: 37px;
-      height: 37px;
-      border-radius: 50px;
-      transition: filter ease-in-out 0.2s;
-      margin-right: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        filter: brightness(0.8);
-      }
-    }
   }
 `;
 
@@ -90,38 +63,43 @@ export const Pagination = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  > span {
+  color: ${({ theme }) => theme.colors.text};
+  small {
     color: #312e38;
     opacity: 0.6;
   }
 
-  > div {
-    svg {
-      font-size: larger;
-    }
-    span {
-      padding: 5px 9px;
-      color: #312e38;
-
-      margin: 0 5px;
-      border-radius: 5rem;
-      font-size: 0.8rem;
-      cursor: pointer;
-
-      &:hover,
-      &.active {
-        background: ${({ theme }) => theme.colors.primary};
-        color: ${({ theme }) => theme.colors.secondary};
-        box-shadow: 0px 0px 5px ${({ theme }) => theme.colors.primary};
-      }
-    }
-  }
-
-  button {
-    background: none;
-    border: none;
+  div {
+    display: flex;
+    align-items: center;
   }
 `;
-export const PaginatiionButton = styled.div``;
-export const PaginationItem = styled.div``;
+export const PaginatiionButton = styled.div`
+  background: ${({ theme }) => theme.colors.tertiary};
+  border: none;
+
+  font-size: larger;
+  border-radius: 1rem;
+  transition: filter ease-in-out 0.2s;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
+  }
+`;
+
+export const PaginationItem = styled.div`
+  padding: 5px 9px;
+
+  margin: 0 5px;
+  border-radius: 5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+
+  &:hover,
+  &.active {
+    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.secondary};
+    box-shadow: 0px 0px 5px ${({ theme }) => theme.colors.primary};
+  }
+`;

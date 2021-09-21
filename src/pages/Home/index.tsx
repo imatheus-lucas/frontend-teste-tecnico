@@ -7,6 +7,8 @@ import {
   Pagination,
   Wrapper,
   Main,
+  PaginatiionButton,
+  PaginationItem,
 } from './styles';
 import {
   MdExpandMore,
@@ -17,22 +19,54 @@ import {
   MdChevronLeft,
   MdChevronRight,
 } from 'react-icons/md';
-import CheckBox from '../../components/CheckBox';
-import Switch from 'react-switch';
+import ClientItem from '../../components/ClientItem';
 import TableHeaderActions from '../../components/TableHeaderActions';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { fetchApi } from '../../services/api';
 
 type RegionsDataProps = {
   idRegion: number;
   nameRegion: string;
+  statusRegion: boolean;
 };
 export default function Home() {
   const [regions, setRegions] = useState<RegionsDataProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const fetchRegiosList = async () => {
+    setIsLoading(true);
     const data = await fetchApi('/region/list');
-    setRegions(data.regions);
+
+    const regions = data.regions.map((region: RegionsDataProps) => {
+      return {
+        idRegion: region.idRegion,
+        nameRegion: region.nameRegion,
+        status: false,
+      };
+    });
+    setRegions(regions);
+    setIsLoading(false);
   };
+
+  const handleToggleStatus = useCallback(
+    async (idRegion: number) => {
+      const region = regions.find(
+        (region: RegionsDataProps) => region.idRegion === idRegion,
+      );
+      if (region) {
+        region.statusRegion = !region.statusRegion;
+
+        setRegions(prev => {
+          return prev.map(region => {
+            if (region.idRegion === idRegion) {
+              return region;
+            }
+            return region;
+          });
+        });
+      }
+    },
+    [regions],
+  );
   useEffect(() => {
     fetchRegiosList();
   }, []);
@@ -67,57 +101,31 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {regions.map(region => (
-                    <tr key={region.idRegion}>
-                      <td>
-                        <CheckBox checked={false} />
-                      </td>
-                      <td>{region.idRegion}</td>
-                      <td>{region.nameRegion}</td>
-
-                      <td>
-                        <div>
-                          <Switch
-                            onChange={() => {}}
-                            checked={true}
-                            checkedIcon={false}
-                            uncheckedIcon={false}
-                            height={20}
-                            width={40}
-                            handleDiameter={14}
-                            offColor={'#dddddd'}
-                            onColor={'#614CF9'}
-                            className="react-switch"
-                          />
-                          <div>
-                            <button>
-                              <MdCreate />
-                            </button>
-                            <button>
-                              <MdDelete color="#f45" />
-                            </button>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
+                    <ClientItem
+                      key={region.idRegion}
+                      region={region}
+                      toggleStatus={handleToggleStatus}
+                    />
                   ))}
                 </tbody>
               </Table>
             </ScrollingTable>
           </section>
+
           <Pagination>
-            <span>Visualizado 1 - 25 de 70 clientes</span>
+            <small>Visualizado 1 - 25 de 70 clientes</small>
             <div>
-              <button className="btn prev">
+              <PaginatiionButton>
                 <MdChevronLeft />
-              </button>
-              <span className="active">1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
-              <span>5</span>
-              <button className="btn next">
+              </PaginatiionButton>
+              <PaginationItem className="active">1</PaginationItem>
+              <PaginationItem>2</PaginationItem>
+              <PaginationItem>3</PaginationItem>
+              <PaginationItem>4</PaginationItem>
+              <PaginationItem>5</PaginationItem>
+              <PaginatiionButton>
                 <MdChevronRight />
-              </button>
+              </PaginatiionButton>
             </div>
           </Pagination>
         </Main>

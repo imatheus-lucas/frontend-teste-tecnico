@@ -10,6 +10,7 @@ export const Container = styled.nav`
 
   a {
     padding: 0.675rem 0;
+    margin-top: 0.475rem;
     width: 100%;
     display: flex;
     align-items: center;
