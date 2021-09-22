@@ -19,7 +19,7 @@ interface RegionsDataProps {
 }
 function ClientItem({ region, toggleStatus }: ClientItemProps) {
   return (
-    <Container>
+    <Container active={region.statusRegion}>
       <td>
         <CheckBox checked={true} />
       </td>

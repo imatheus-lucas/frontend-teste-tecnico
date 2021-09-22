@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.tr`
+interface ContainerProps {
+  active: boolean;
+}
+export const Container = styled.tr<ContainerProps>`
+  ${({ active }) => !active && `opacity:0.6`};
   td + td {
     color: ${({ theme }) => theme.colors.text};
     font-size: 0.775rem;
