@@ -1,4 +1,5 @@
 //fetch return json
+
 const GET = async (url: string) => {
   const response = await fetch(
     `https://hmg-dev-brf-backend.profitmais.com.br${url}`,
@@ -12,4 +13,9 @@ const GET = async (url: string) => {
   const data = await response.json();
   return data;
 };
-export default { GET };
+
+const apiMethods = {
+  GET,
+};
+
+export default apiMethods;

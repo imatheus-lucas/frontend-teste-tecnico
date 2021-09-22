@@ -25,9 +25,9 @@ export const Icon = styled.svg`
   stroke-width: 2px;
 `;
 
-type StyledCheckboxProps = {
+interface StyledCheckboxProps {
   checked: boolean;
-};
+}
 export const StyledCheckbox = styled.div<StyledCheckboxProps>`
   display: inline-block;
   width: 20px;

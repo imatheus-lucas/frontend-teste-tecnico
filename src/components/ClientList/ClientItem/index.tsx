@@ -7,16 +7,16 @@ import { MdCreate, MdDelete } from 'react-icons/md';
 
 import { Container } from './styles';
 
-type ClientItemProps = {
+interface ClientItemProps {
   region: RegionsDataProps;
   toggleStatus: (idRegion: number) => void;
-};
+}
 
-type RegionsDataProps = {
+interface RegionsDataProps {
   idRegion: number;
   nameRegion: string;
   statusRegion: boolean;
-};
+}
 function ClientItem({ region, toggleStatus }: ClientItemProps) {
   return (
     <Container>

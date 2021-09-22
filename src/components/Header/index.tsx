@@ -1,4 +1,4 @@
-import Badge from '../Badge';
+import Badge from '../Basics/Badge';
 
 import { FiBell } from 'react-icons/fi';
 import { MdKeyboardArrowDown } from 'react-icons/md';
