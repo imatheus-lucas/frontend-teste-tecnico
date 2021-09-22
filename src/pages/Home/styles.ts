@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  height: calc(100vh - 3rem);
-`;
 export const Wrapper = styled.div`
   display: flex;
-  height: 100%;
 `;
 export const Main = styled.main`
   flex: 1;
+  max-height: calc(100vh - 3rem);
   background: ${({ theme }) => theme.colors.tertiary};
   padding: 3rem;
   h1 {
@@ -25,7 +22,6 @@ export const Main = styled.main`
   }
 `;
 export const ScrollingTable = styled.div`
-  position: relative;
   margin: 1rem 0;
   height: 90%;
   overflow-y: scroll;

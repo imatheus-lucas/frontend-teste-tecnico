@@ -2,13 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 
 import Header from '../../components/Header';
 import SideNav from '../../components/SideNav';
-import ClientItem from '../../components/ClientItem';
+import ClientItem from '../../components/ClientList/ClientItem';
 import TableHeaderActions from '../../components/TableHeaderActions';
 
 import { MdUnfoldMore, MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { fetchApi } from '../../services/api';
+import api from '../../services/api';
 import {
-  Container,
   Table,
   ScrollingTable,
   Pagination,
@@ -27,7 +26,7 @@ export default function Home() {
   const [regions, setRegions] = useState<RegionsDataProps[]>([]);
 
   const fetchRegiosList = async () => {
-    const data = await fetchApi('/region/list');
+    const data = await api.GET('/region/list');
 
     const regions = data.regions.map((region: RegionsDataProps) => {
       return {
@@ -59,11 +58,12 @@ export default function Home() {
     },
     [regions],
   );
+
   useEffect(() => {
     fetchRegiosList();
   }, []);
   return (
-    <Container>
+    <>
       <Header />
       <Wrapper>
         <SideNav />
@@ -122,6 +122,6 @@ export default function Home() {
           </Pagination>
         </Main>
       </Wrapper>
-    </Container>
+    </>
   );
 }

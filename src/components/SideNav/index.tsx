@@ -1,20 +1,20 @@
-import { Container } from './styles';
+import { Container, NavLink } from './styles';
 import { FiHome, FiUsers, FiBook, FiInfo } from 'react-icons/fi';
 export default function SideNav() {
   return (
     <Container>
-      <a href="#">
+      <NavLink href="#">
         <FiHome size={20} />
-      </a>
-      <a href="#" className="active">
+      </NavLink>
+      <NavLink href="#" className="active">
         <FiBook size={20} />
-      </a>
-      <a href="#">
+      </NavLink>
+      <NavLink href="#">
         <FiUsers size={20} />
-      </a>
-      <a href="#">
+      </NavLink>
+      <NavLink href="#">
         <FiInfo size={20} />
-      </a>
+      </NavLink>
     </Container>
   );
 }

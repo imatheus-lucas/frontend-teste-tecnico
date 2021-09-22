@@ -1,4 +1,4 @@
-import CheckBox from '../CheckBox';
+import CheckBox from '../Basics/CheckBox';
 
 import { MdExpandMore, MdSearch } from 'react-icons/md';
 import { Container } from './styles';

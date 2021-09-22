@@ -7,7 +7,6 @@ export const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  grid-area: header;
 
   span {
     font-size: 1.5rem;

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import CheckBox from '../CheckBox';
+import CheckBox from '../../Basics/CheckBox';
 import Switch from 'react-switch';
 
 import { MdCreate, MdDelete } from 'react-icons/md';
